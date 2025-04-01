@@ -3,7 +3,7 @@ import axios, { AxiosError } from 'axios'
 import { ApiResponse } from '../model/ApiRes'
 import { SignupInfo, User } from '../model/auth'
 axios.defaults.withCredentials = true;
-const API_BASE_URL = "http://localhost:8000/api/auth"
+const API_BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:8000/api/auth" : "api/auth";
 type StoreInfo = {
       user:User | null,
       isAuthenticated: boolean,
